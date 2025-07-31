@@ -1,0 +1,4 @@
+[2025-07-25 16:38:59] CORE - ZNETDK ERROR - PRM-002: parameter 'CFG_SQL_HOST' is not defined in the 'config.php' file of the application!
+[2025-07-25 16:39:12] CORE - ZNETDK ERROR - PRM-002: parameter 'CFG_SQL_HOST' is not defined in the 'config.php' file of the application!
+[2025-07-25 16:39:12] CORE - ZNETDK ERROR - DAO-008: unable to connect to the database: code='PRM-002', message='PRM-002: parameter 'CFG_SQL_HOST' is not defined in the 'config.php' file of the application!
+[2025-07-25 16:39:12] CORE - EXCEPTION - PRM-002: parameter 'CFG_SQL_HOST' is not defined in the 'config.php' file of the application! - C:\wamp64\www\znetdk\engine\core\Parameters.php(47)

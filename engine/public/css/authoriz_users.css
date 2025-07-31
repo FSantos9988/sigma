@@ -1,0 +1,156 @@
+/*!
+* ZnetDK, Starter Web Application for rapid & easy development
+* See official website http://www.znetdk.fr 
+* Copyright (C) 2015 Pascal MARTINEZ (contact@znetdk.fr)
+* License GNU GPL http://www.gnu.org/licenses/gpl-3.0.html GNU GPL
+* --------------------------------------------------------------------
+* Authorizations users view specific styles
+* File version: 1.5
+* Last update: 03/14/2023
+*/
+
+/* ACTION BAR */
+#znetdk_user_actions .zdk-status-filter {
+    float: left;
+    margin-left: 15px;
+}
+
+#znetdk_user_actions .zdk-status-filter > .zdk-radiobuttongroup {
+    position: relative;
+    top: 8px;
+}
+
+#znetdk_user_actions .zdk-filter-rows input {
+    width: 200px;
+}
+
+/* DATATABLE */
+#znetdk_users_datatable {
+    clear:left;
+    margin-top:10px;
+}
+
+#znetdk_users_datatable .zdk-col-login_name {
+    width:120px;
+    text-align:center;
+}
+#znetdk_users_datatable td.zdk-col-login_name {
+    white-space: normal;
+    word-break: break-all;
+}
+
+#znetdk_users_datatable td.zdk-col-login_name:hover {
+    text-decoration: underline;
+}
+
+#znetdk_users_datatable .zdk-col-user {
+    text-align:left;
+}
+
+#znetdk_users_datatable td.zdk-col-user {
+    line-height: 20px;
+}
+
+#znetdk_users_datatable .zdk-col-user .user-name {
+    font-weight: bold;
+}
+
+#znetdk_users_datatable .zdk-col-user .user-email {
+    padding-right: 10px;
+}
+
+#znetdk_users_datatable .zdk-col-user .expiration-date,
+#znetdk_users_datatable .zdk-col-user .user-email,
+#znetdk_users_datatable .zdk-col-user .user-phone {
+    float: left;
+}
+
+#znetdk_users_datatable .zdk-col-user .notes {
+    clear: left;
+}
+
+#znetdk_users_datatable .zdk-col-user .user-email,
+#znetdk_users_datatable .zdk-col-user .user-phone,
+#znetdk_users_datatable .zdk-col-user .notes {
+    word-break: break-all;
+    white-space: normal;
+}
+
+#znetdk_users_datatable .zdk-col-user .expiration-date {
+    width: 108px;
+}
+
+#znetdk_users_datatable .zdk-col-user .fa {
+    margin-right: 4px;
+}
+
+#znetdk_users_datatable .zdk-col-status {
+    max-width: 65px;
+    width: 65px;
+    text-align:center;
+}
+
+#znetdk_users_datatable .zdk-col-menu_access {
+    width: 120px;
+    text-align:center;
+}
+
+#znetdk_users_datatable .zdk-col-user_profiles {
+    text-align:left;
+}
+
+#znetdk_users_datatable td.zdk-col-user_profiles {
+    overflow: visible;
+    white-space: normal;
+}
+
+/* FORM */
+#znetdk_user_dialog .zdk-form-entry > label {
+    width:112px;
+}
+
+#znetdk_user_dialog form input[name=user_email],
+#znetdk_user_dialog form input[name=notes] {
+    width:272px;
+}
+
+#znetdk_user_dialog form > .pui-fieldset:first-of-type {
+    height:88px;
+    margin-top: 0;
+}
+
+#znetdk_user_dialog form > .pui-fieldset:first-of-type .zdk-form-entry:first-of-type,
+#znetdk_user_dialog form > .pui-fieldset:first-of-type .zdk-form-entry:nth-of-type(3) {
+    float:left;
+}
+
+#znetdk_user_dialog form > .pui-fieldset:first-of-type .zdk-form-entry:nth-of-type(2) > label, 
+#znetdk_user_dialog form > .pui-fieldset:first-of-type .zdk-form-entry:nth-of-type(4) > label {
+    width:100px;
+}
+
+#znetdk_user_dialog form > .pui-fieldset:nth-of-type(2) {
+    width:310px;
+    height:220px;
+    float:left;
+}
+
+#znetdk_user_dialog form > .pui-fieldset:nth-of-type(3) {
+    width:348px;
+    height:220px;
+    float: right;
+}
+
+#znetdk_user_dialog .zdk-form-entry .pui-listbox {
+    position: absolute;
+    width: 220px;
+    height: 108px;
+}
+
+#znetdk_user_dialog.pui-dialog .pui-dialog-buttonpane {
+    border-width:0;
+}
+
+#znetdk_user_dialog.pui-dialog button.zdk-bt-cancel {
+    float: right;
+}
