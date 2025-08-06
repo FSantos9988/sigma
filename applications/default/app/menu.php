@@ -16,7 +16,7 @@ class Menu implements \iMenu {
         \MenuManager::addMenuItem(NULL, '_authorization', LC_MENU_AUTHORIZATION, 'fa-unlock-alt');
         \MenuManager::addMenuItem('_authorization', 'users', LC_MENU_AUTHORIZ_USERS, 'fa-user');
         \MenuManager::addMenuItem('_authorization', 'profiles', LC_MENU_AUTHORIZ_PROFILES, 'fa-key');
-        \MenuManager::addMenuItem(null,'parceiros','Parceiros');
+        \MenuManager::addMenuItem(NULL, 'bancosview', 'Bancos', 'fa-home');
     }
 
 }
