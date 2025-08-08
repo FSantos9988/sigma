@@ -4,29 +4,27 @@ namespace app\model;
 class AgenciasDAO extends \DAO {
     protected function initDaoProperties() {
         $this->table = "agencias";
+        $this->IdColumnName = "id";
+
+        $this->query  = " SELECT agc.id, agc.id_banco, agc.agencia, agc.agencia_codigo, ";
+        $this->query .= " agc.agencia_dv, agc.endereco, agc.complemento, agc.numero, ";
+        $this->query .= " agc.cep, agc.bairro, agc.cidade, agc.uf, agc.telefone, ";
+        $this->query .= " agc.ramal, agc.observacoes, CONCAT(bco.codigo_febraban, ' - ', bco.banco) AS banco ";
+        $this->query .= " FROM agencias agc ";
+        $this->query .= " INNER JOIN bancos bco ON bco.id = agc.id_banco ";
     }
 
     public function setKeywordAsFilter($keyword) {
-        $this->filterClause = " WHERE LOWER(agencia) LIKE LOWER(?) "
-            . " OR LOWER(agencia_codigo) LIKE LOWER(?) "
-            . " OR LOWER(agencia_dv) LIKE LOWER(?) "
-            . " OR LOWER(endereco) LIKE LOWER(?) "
-            . " OR LOWER(complemento) LIKE LOWER(?) "
-            . " OR LOWER(numero) LIKE LOWER(?) "
-            . " OR LOWER(cep) LIKE LOWER(?) "
-            . " OR LOWER(bairro) LIKE LOWER(?) "
-            . " OR LOWER(cidade) LIKE LOWER(?) "
-            . " OR LOWER(uf) LIKE LOWER(?) "
-            . " OR LOWER(telefone) LIKE LOWER(?) "
-            . " OR LOWER(ramal) LIKE LOWER(?) "
-            . " OR LOWER(nome_gerente) LIKE LOWER(?) "
-            . " OR LOWER(email_gerente) LIKE LOWER(?) "
-            . " OR LOWER(celular_gerente) LIKE LOWER(?) "
-            . " OR LOWER(observacoes) LIKE LOWER(?) ";
-        $this->setFilterCriteria(
-            $keyword, $keyword, $keyword, $keyword, 
-            $keyword, $keyword, $keyword, $keyword, 
-            $keyword, $keyword, $keyword, $keyword, 
-            $keyword, $keyword, $keyword, $keyword);
+        $this->filterClause = " WHERE LOWER(agc.agencia) LIKE LOWER(?) "
+            . " OR LOWER(agc.agencia_codigo) LIKE LOWER(?) "
+            . " OR LOWER(agc.agencia_dv) LIKE LOWER(?) "
+            . " OR LOWER(agc.telefone) LIKE LOWER(?) "
+            . " OR LOWER(agc.ramal) LIKE LOWER(?) ";
+        $this->setFilterCriteria($keyword, $keyword, $keyword, $keyword, $keyword);
+    }
+
+    public function setAgenciaAsFilter($name) {
+        $this->filterClause = " WHERE LOWER(agc.agencia) LIKE LOWER(?)";
+        $this->setFilterCriteria($name);
     }
 }
