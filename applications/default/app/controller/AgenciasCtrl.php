@@ -9,8 +9,7 @@ class AgenciasCtrl extends \AppController {
             'id', 'id_banco', 'agencia', 'agencia_codigo',
             'agencia_dv', 'endereco', 'complemento', 'numero',
             'cep', 'bairro', 'cidade', 'uf', 'telefone',
-            'ramal', 'nome_gerente', 'email_gerente', 'celular_gerente',
-            'observacoes'   
+            'ramal', 'observacoes'   
         ); 
 
         // 2) Store values into the database
@@ -48,6 +47,22 @@ class AgenciasCtrl extends \AppController {
         return $response;
     }
 
+    protected static function action_get() {
+        $response = new \Response();
+        $AgenciasDAO = new \app\model\AgenciasDAO();
+        $AgenciasDAO->setSortCriteria('agc.agencia ASC');
+        $AgenciasFound = array();
+        
+        while ($row = $AgenciasDAO->getResult()) {
+            $AgenciasFound[] = array('label' => $row['banco'] . ' - ' . $row['agencia_codigo'] . ' - ' . $row['agencia'], 'value' => $row['id']);
+        }
+
+        $response->rows = $AgenciasFound;
+        $response->success = TRUE;
+
+        return $response;
+    }
+
     protected static function action_data() {
         // 1) Read POST parameters
         $request = new \Request();
@@ -58,7 +73,7 @@ class AgenciasCtrl extends \AppController {
         $sortField = $request->sortfield;
         $sortOrder = $request->sortorder;
         $sortCriteria = is_null($sortField)
-            ? 'agencia ASC'
+            ? 'agencia'
             : $sortField . (
                 is_null($sortOrder)
                     ? ' ASC'
@@ -66,7 +81,7 @@ class AgenciasCtrl extends \AppController {
             );
         // --> Filter criteria
         $criteria = $request->search_criteria;
-        $keyword  = '%' . $criteria . '%';
+        $keyword = '%' . $criteria . '%';
 
         // 2) Request rows from the database
         $response = new \Response();
@@ -99,7 +114,7 @@ class AgenciasCtrl extends \AppController {
         $request = new \Request();
 
         $AgenciasDAO = new \app\model\AgenciasDAO();
-        $AgenciasDAO->setKeywordAsFilter('%' . $request->criteria . '%');
+        $AgenciasDAO->setAgenciaAsFilter('%' . $request->criteria . '%');
         $AgenciasDAO->setLimit(0, 10); // Limit to 10 suggestions
 
         $response = new \Response();

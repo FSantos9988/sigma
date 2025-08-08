@@ -44,6 +44,22 @@ class BancosCtrl extends \AppController {
         return $response;
     }
 
+    protected static function action_get() {
+        $response = new \Response();
+        $BancosDAO = new \app\model\BancosDAO();
+        $BancosDAO->setSortCriteria('bco.codigo_febraban ASC');
+        $BancosFound = array();
+
+        while ($row = $BancosDAO->getResult()) {
+            $BancosFound[] = array('label' => $row['codigo_febraban'] . ' - ' . $row['banco'], 'value' => $row['id']);
+        }
+
+        $response->rows = $BancosFound;
+        $response->success = TRUE;
+
+        return $response;
+    }
+
     protected static function action_data() {
         // 1) Read POST parameters
         $request = new \Request();
@@ -53,7 +69,13 @@ class BancosCtrl extends \AppController {
         // --> Sort criteria
         $sortField = $request->sortField;
         $sortOrder  = $request->sortOrder;
-        $sortCriteria = is_null($sortField) ? 'banco' : $sortField . (is_null($sortOrder) ? ' ASC' : ($sortOrder == 1 ? ' ASC' : ' DESC'));
+        $sortCriteria = is_null($sortField)
+            ? 'banco ASC'
+            : $sortField . (
+                is_null($sortOrder)
+                    ? ' ASC'
+                    : ($sortOrder == 1 ? ' ASC' : ' DESC')
+            );
         // --> Filter criteria
         $criteria = $request->search_criteria;
         $keyword  = '%' . $criteria . '%';
