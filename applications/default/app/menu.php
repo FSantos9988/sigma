@@ -18,6 +18,7 @@ class Menu implements \iMenu {
         \MenuManager::addMenuItem('_authorization', 'profiles', LC_MENU_AUTHORIZ_PROFILES, 'fa-key');
 		\MenuManager::addMenuItem(NULL, 'bancos', 'Bancos', 'fa-unlock-alt');
         \MenuManager::addMenuItem(NULL, 'agencias', 'Agências', 'fa-unlock-alt');
+        \MenuManager::addMenuItem(NULL, 'contasbancarias', 'Contas Bancárias', 'fa-unlock-alt');
     }
 
 }
