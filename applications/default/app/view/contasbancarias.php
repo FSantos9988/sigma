@@ -61,11 +61,11 @@
         <label for="conta_dv">Dígito da Conta:</label>
         <input type="text" id="conta_dv" name="conta_dv" maxlength="5">
         <label for="saldo_inicial">Saldo Inicial:</label>
-        <input type="number" id="saldo_inicial" name="saldo_inicial" maxlength="15">
+        <input type="text" id="saldo_inicial" name="saldo_inicial">
         <label for="saldo_atual">Saldo Atual:</label>
-        <input type="number" id="saldo_atual" name="saldo_atual" maxlength="15">
+        <input type="text" id="saldo_atual" name="saldo_atual">
         <label for="limite_credito">Limite de Crédito:</label>
-        <input type="number" id="limite_credito" name="limite_credito" maxlength="15">
+        <input type="text" id="limite_credito" name="limite_credito">
         <label for="data_abertura">Data de Abertura:</label>
         <input type="date" id="data_abertura" name="data_abertura">
         <label for="data_encerramento">Data de Encerramento:</label>
@@ -82,3 +82,10 @@
         <button class="zdk-bt-cancel zdk-close-dialog" type="button">Cancelar</button>
     </form>
 </div>
+<script>
+    $(function() {
+        $('#saldo_inicial, #saldo_atual, #limite_credito').maskMoney({
+            prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',', affixesStay: false, precision: 2
+        });
+    });
+</script>
